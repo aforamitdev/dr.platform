@@ -1,40 +1,31 @@
-import { useState } from 'react';
-import { Greet } from '../wailsjs/go/main/App';
+import { useEffect, useState } from 'react';
+import { GetPlatform } from '../wailsjs/go/main/App';
 function App() {
   const [resultText, setResultText] = useState(
     'Please enter your name below 👇'
   );
   const [name, setName] = useState('');
+  const [platform, setPlatform] = useState<any>({});
   const updateName = (e: any) => setName(e.target.value);
-  const updateResultText = (result: string) => setResultText(result);
 
-  function greet() {
-    Greet(name).then((name) => {
-      console.log(name);
+  const getPlatform = async () => {
+    GetPlatform('As').then((res) => {
+      console.log(res);
+      setPlatform(JSON.parse(res));
     });
-    Greet(name).then(updateResultText);
-  }
+  };
+
+  useEffect(() => {
+    getPlatform();
+  }, []);
 
   return (
-    <div className='bg-slate-900 flex h-screen text-white flex-col '>
-      <div id='result' className='result'>
-        {resultText}
+    <div className='flex h-screen text-white flex-col '>
+      <div className='bg-slate-900  h-12 flex px-10 justify-between items-center'>
+        <div className='uppercase'>{platform.platform}</div>
+        <div>as</div>
       </div>
-
-      <div></div>
-      <div id='input' className='input-box text-black'>
-        <input
-          id='name'
-          className='input'
-          onChange={updateName}
-          autoComplete='off'
-          name='input'
-          type='text'
-        />
-        <button className='btn' onClick={greet}>
-          Greet
-        </button>
-      </div>
+      <div className='h-full flex-1 bg-gray-200 text-gray-800'>asa</div>
     </div>
   );
 }

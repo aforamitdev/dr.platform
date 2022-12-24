@@ -3,6 +3,7 @@ package main
 import (
 	"changeme/internals/pkg/hwinfo"
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
 	"os/exec"
@@ -26,7 +27,7 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // Greet returns a greeting for the given name
-func (a *App) Greet(name string) string {
+func (a *App) GetPlatform(name string) string {
 	stats := exec.Command("hostnamectl")
 	log.Printf(runtime.GOOS)
 	err := stats.Run()
@@ -39,5 +40,9 @@ func (a *App) Greet(name string) string {
 
 	hw.PlatFormInfo()
 
-	return fmt.Sprintf("Hello %s, It's show time!", name)
+	res, err := json.Marshal(&hw)
+	if err != nil {
+		log.Panicln(res)
+	}
+	return string(res)
 }
