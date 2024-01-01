@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.btn-side{
+    @apply h-9 w-9 flex justify-center items-center rounded-sm bg-gray-300 cursor-pointer bg-primary hover:ring-2
+}
+
+/* CSS HSL 
+
+--space-cadet: hsla(233, 22%, 23%, 1);
+--white: hsla(240, 100%, 100%, 1);
+--persian-green: hsla(173, 58%, 39%, 1);
+--dogwood-rose: hsla(332, 97%, 43%, 1);
+--hunyadi-yellow: hsla(36, 72%, 56%, 1);
+*/
