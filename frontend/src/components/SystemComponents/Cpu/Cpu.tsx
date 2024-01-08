@@ -22,14 +22,13 @@ function Cpu({}: Props) {
     });
   }, []);
   return (
-    <div className='border w-full   rounded-xl bg-primary'>
+    <div className='border w-full   rounded-sm bg-primary'>
       <div className='px-2 py-2'>
         <div className='flex text-white space-x-1 text-sm'>
           <div>
             <FontAwesomeIcon icon={faMicrochip} color='white' size='1x' />
           </div>
           <div>Processor</div>
-          <div>as</div>
         </div>
       </div>
     </div>
