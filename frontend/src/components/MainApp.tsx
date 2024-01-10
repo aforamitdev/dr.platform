@@ -11,7 +11,6 @@ const MainApp = (props: Props) => {
 
   return (
     <div className='px-10 py-5 w-full'>
-      {JSON.stringify(state)}
       <SystemAtGlance />
       {/* selected tab info  */}
       <SystemPanel />
