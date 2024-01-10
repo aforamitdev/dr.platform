@@ -1,14 +1,11 @@
 import React, { Dispatch, createContext, useContext, useReducer } from 'react';
 import { System } from '../components/types';
-import { reducer, systemState } from './systemreducer';
+import { Actions, reducer, systemState } from './systemreducer';
 
-export const SystemContext = createContext<
-  | {
-      state: System;
-      dispatch: Dispatch<any>;
-    }
-  | any
->({});
+export const SystemContext = createContext<{
+  state: System;
+  dispatch: Dispatch<Actions>;
+}>({ state: systemState, dispatch: () => {} });
 
 export const SystemContextProvider = ({
   children,
@@ -16,12 +13,14 @@ export const SystemContextProvider = ({
   children: React.ReactNode;
 }): React.ReactElement => {
   const [state, dispatch] = useReducer(reducer, systemState);
-
-  return (
-    <SystemContext.Provider value={{ state: state, dispatch: dispatch }}>
-      {children}
-    </SystemContext.Provider>
-  );
+  if (state && dispatch) {
+    return (
+      <SystemContext.Provider value={{ state: state, dispatch: dispatch }}>
+        {children}
+      </SystemContext.Provider>
+    );
+  }
+  return <div>Error loading state....</div>;
 };
 
 export const useSystemContext = () => useContext(SystemContext);
