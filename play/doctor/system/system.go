@@ -2,6 +2,7 @@ package system
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -9,7 +10,8 @@ import (
 )
 
 type System struct {
-	ctx context.Context
+	ctx      context.Context
+	diskInfo MemoryInformation
 }
 
 func NewSystem(ctx context.Context) *System {
@@ -31,5 +33,10 @@ func (s *System) GetCpuUses(interval time.Duration, parcpu bool) []float64 {
 	if err != nil {
 		log.Println(err)
 	}
+	fmt.Println(uses)
 	return uses
+}
+
+func (s *System) GetTemp() {
+
 }

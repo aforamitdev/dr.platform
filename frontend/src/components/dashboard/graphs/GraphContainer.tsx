@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Graph from './Graph';
 import { Accordion, Button, Card, Stack } from 'react-bootstrap';
 import List from '../cores/List';
-import { GetCpuUses } from '../../../../wailsjs/go/system/System.js';
+import {
+  GetCpuUses,
+  GetMemoryInfo,
+  GetTemp,
+} from '../../../../wailsjs/go/system/System.js';
 import './graphContainer.scss';
 
 type Props = {};
@@ -17,6 +21,13 @@ const GraphContainer = (props: Props) => {
       });
     }, 5000);
 
+    GetMemoryInfo().then((e) => {
+      console.log(e);
+    });
+
+    GetTemp().then((e) => {
+      console.log(e);
+    });
     return () => {
       interval;
     };

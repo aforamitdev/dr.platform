@@ -9,3 +9,15 @@ export function GetCpuInfo() {
 export function GetCpuUses(arg1, arg2) {
   return window['go']['system']['System']['GetCpuUses'](arg1, arg2);
 }
+
+export function GetHardDriveInfo() {
+  return window['go']['system']['System']['GetHardDriveInfo']();
+}
+
+export function GetMemoryInfo() {
+  return window['go']['system']['System']['GetMemoryInfo']();
+}
+
+export function GetTemp() {
+  return window['go']['system']['System']['GetTemp']();
+}

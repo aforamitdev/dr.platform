@@ -11,16 +11,16 @@ const Index = (props: Props) => {
   return (
     <div className='tw-px-7 tw-py-3 tw-w-full'>
       <div className='tw-flex tw-w-full tw-justify-between tw-space-x-4 tw-pb-4'>
-        <Card style={{ height: '14vh', width: '100%' }}>
+        <Card style={{ height: '10vh', width: '100%' }}>
           <DHeader name='Processors' logo={<ProcessorsIcon />} />
         </Card>
-        <Card style={{ height: '14vh', width: '100%' }}>
+        <Card style={{ height: '10vh', width: '100%' }}>
           <DHeader name='RAM' logo={<RamIcon />} />
         </Card>
-        <Card style={{ height: '14vh', width: '100%' }}>
+        <Card style={{ height: '10vh', width: '100%' }}>
           <DHeader name='Network' logo={<ProcessorsIcon />} />
         </Card>
-        <Card style={{ height: '14vh', width: '100%' }}>
+        <Card style={{ height: '10vh', width: '100%' }}>
           <DHeader name='GPU' logo={<ProcessorsIcon />} />
         </Card>
       </div>
